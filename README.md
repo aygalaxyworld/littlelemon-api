@@ -37,11 +37,11 @@ Before you begin, ensure you have met the following requirements:
 5. Create an admin python manage.py createsuperuser
 The API should now be accessible at http://localhost:8000/api/.
 
-Usage
-Authentication
+## Usage
+### Authentication
 To access most API endpoints, you need to authenticate. The API supports Token-based authentication, which can be obtained by creating an account or superuser account and then logging in.
 
-API Endpoints
+### API Endpoints
 Menu Items: /api/menu-items
 
 Create, list, filter, and sort menu items.
@@ -52,9 +52,11 @@ Create and list cart items.
 Requires authentication.
 Orders: /api/orders
 
-Create, list, and filter orders.
-Requires authentication.
-User Profile: /api/profile
+Add users to Manager Groups
+ group:  api/groups/manager/users
+         api/groups/manager/users/<int:pk>
+         api/groups/delivery-crew/users
+         api/groups/delivery-crew/users/<int:pk>
 
 Retrieve and update user profiles.
 Requires authentication.
@@ -62,27 +64,31 @@ Admin Panel: /admin
 
 Access the Django admin panel.
 Requires admin permissions.
-Permissions
+
+## Permissions
 The API uses permissions to control access to various features:
 
 IsAuthenticated: Users must be logged in to access most endpoints.
 IsManagerOrReadOnly: Managers can edit menu items, others can only view.
 IsAdminUser: Admins have full access to everything.
 IsCustomer: Users without any specific group can access customer features.
-Filters and Sorting
+
+## Filters and Sorting
 You can filter and sort data on some endpoints using query parameters. For example, on the /api/menu-items endpoint, you can filter by name or price and sort by various criteria.
 
 Example:
 
 Filter menu items by name: /api/menu-items?name=burger
 Sort menu items by price: /api/menu-items?ordering=price
-Contributing
+
+## Contributing
 Contributions are welcome! If you'd like to contribute to the project, please follow these steps:
 
 Fork the project.
 Create a new branch for your feature or bug fix.
 Make your changes and test thoroughly.
 Submit a pull request to the main repository.
-License
+
+## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
